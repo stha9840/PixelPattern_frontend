@@ -1,0 +1,169 @@
+.NavbarItems {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: white; /* Set the background color to white */
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    z-index: 99;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for better contrast */
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 40px; /* Adjusted gap between nav items */
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 2%; /* Adjusted position to align on the right side */
+}
+
+.nav-menu-list {
+    display: flex;
+    align-items: center;
+    font-family: "Gilroy Medium";
+    font-size: 1.1rem;
+}
+
+.nav-link {
+    color: black;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease-in-out;
+    padding: 8px 16px; /* Padding for button-like appearance */
+    border-radius: 20px; /* Rounded corners */
+}
+
+.nav-link:hover {
+    color: #681cb0;
+    text-decoration: underline;
+    background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
+}
+
+.logout-button {
+    background: transparent;
+    border: 2px solid black;
+    color: black;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 1.1rem;
+    border-radius: 20px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.menu-icons {
+    display: none;
+}
+
+.active li {
+    font-weight: 60;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+@media screen and (max-width: 950px) {
+    .NavbarItems, .menu-icons {
+        z-index: 99;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: #ffffff;
+        border-radius: 13px;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: -100%;
+        opacity: 0;
+        align-items: center;
+        padding: 80px 0 30px 0;
+        margin: 0;
+        z-index: 200;
+        transition: 0.8s all ease-in-out;
+    }
+
+    .nav-menu-list {
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+    }
+
+    .nav-menu.active {
+        left: 0;
+        opacity: 1;
+        z-index: 1;
+    }
+
+    .nav-menu li {
+        display: block;
+        font-size: 1.2rem;
+        padding: 1rem 0;
+    }
+
+    .nav-menu li:hover {
+        transition: none;
+    }
+
+    .menu-icons {
+        display: block;
+        position: absolute;
+        right: 5%;
+    }
+
+    .navbar-right {
+        position: initial;
+        bottom: 2%;
+    }
+}
+
+.navbar-search-wrapper {
+    border: 1px solid #2c0957;
+    border-radius: 30px;
+    background-color: white;
+    height: 5vh;
+    width: 9vw;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.navbar-search-wrapper input {
+    height: 100%;
+    width: 100%;
+    padding: 0 1rem;
+    border: none;
+    outline: none;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.navbar-search-wrapper span {
+    display: inline-block;
+    padding: 0.2rem 8px 0 0.3rem;
+    font-size: 1.1rem;
+    background-color: #ffffff;
+    color: #7210b2;
+    margin-left: -1.72rem;
+}
+
+.navbar-search-wrapper span:hover {
+    cursor: pointer;
+}
+
+.navbar-right {
+    position: absolute;
+    right: 2%;
+    width: 84px;
+}

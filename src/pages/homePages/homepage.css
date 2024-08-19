@@ -1,0 +1,252 @@
+.slider{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider .list .item{
+    display: flex;
+    position: absolute;
+    inset: 0 0 0 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.slider .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Removed the gradient and added a solid overlay, or you can comment it out if not needed */
+.slider .list .item::after{
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Solid background color */
+    /* If not needed at all, you can comment out the entire block */
+}
+
+.slider .list .item .content{
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    width: 500px;
+    max-width: 80%;
+    z-index: 1;
+    color: white;
+}
+
+.slider .list .item .content p:nth-child(1){
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
+.slider .list .item .content h2{
+    font-size: 100px;
+    margin: 0;
+}
+
+.slider .list .item.active{
+    opacity: 1;
+    z-index: 10;
+}
+
+@keyframes showContent{
+    to{
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.slider .list .item .content p:nth-child(1),
+.slider .list .item .content h2,
+.slider .list .item .content p:nth-child(3){
+    transform: translateY(30px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s .7s ease-in-out 1 forwards;
+}
+
+.slider .list .item .content h2{
+    animation-delay: 1s;
+}
+
+.slider .list .item .content p:nth-child(3){
+    animation-delay: 1.3s;
+}
+
+.arrows{
+    position: absolute;
+    top: 30%;
+    right: 50%;
+    z-index: 100;
+}
+
+.arrows button{
+    background-color: #eee5;
+    border: none;
+    font-family: monospace;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: x-large;
+    color: #eee;
+    transition: .5s;
+    justify-content: space-between;
+}
+
+.arrows button:hover{
+    background-color: black;
+    color: #eeeeee;
+}
+
+.thumbnail{
+    position: absolute;
+    display: flex;
+    bottom: 50px;
+    z-index: 11;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 250px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.thumbnail::-webkit-scrollbar{
+    width: 0;
+}
+
+.thumbnail .item{
+    width: 150px;
+    height: 220px;
+    filter: brightness(.5);
+    transition: .5s;
+    flex-shrink: 0;
+}
+
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.thumbnail .item.active{
+    filter: brightness(1.5);
+}
+
+.thumbnail .item .content{
+    position: absolute;
+    inset: auto 10px 10px 10px;
+}
+
+.thumbnail .item.active img {
+    border-color: #007bff;
+}
+
+@media screen and (max-width: 600px){
+    .thumbnail{
+        justify-content: start;
+    }
+    .slider .list .item .content h2{
+        font-size: 60px;
+    }
+    .arrows{
+        top: 10%;
+    }
+}
+
+@media (min-width: 768px) {
+    .search-header {
+        padding: 0;
+    }
+}
+
+.search-header {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-header .bg-color{
+    width: 100%;
+    height: 80px;
+    background: #ffffff; /* Set background to plain white */
+}
+
+.search-input-container{
+    width: 100%;
+    max-width: 628px;
+    margin: 40px auto;
+    transform: translateY(-50%);
+    padding: 0 1rem;
+    font-size: 1rem;
+}
+
+.search-input-with-dropdown{
+    width: 100%;
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    align-items: center;
+    height: 60px;
+    border-radius: 8px;
+    background: #fff;
+    border: 1.5px solid #2c0957;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.06);
+}
+
+.left-side-wrapper {
+    padding: 0 1rem;
+    display: flex;
+    position: relative;
+    flex: 1;
+    align-items: center;
+    height: 100%;
+    padding-left: 35px;
+}
+
+.left-side-wrapper input{
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.search-input-with-dropdown .search-icon {
+    width: 16px;
+    height: 16px;
+    color: #9e9ea7;
+    margin-right: 20px;
+}
+
+.popular {
+    color: black;
+    margin-top: 70px;
+}
+
+.popular h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.popular-item {
+    margin-top: 70px;
+    gap: 80px;
+    justify-content: center;
+}
+
+.popular-item img {
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
